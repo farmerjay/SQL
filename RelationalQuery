@@ -1,0 +1,40 @@
+/* Creatde table about the people and what they do here */
+
+CREATE TABLE movies (id INTEGER PRIMARY KEY, name TEXT, movie TEXT);
+
+INSERT INTO movies (name, movie) VALUES ("Woody", "White Men Can't Jump");
+INSERT INTO movies (name, movie) VALUES ("Candy", "Cool Runnings");
+INSERT INTO movies (name, movie) VALUES ("Rock", "The Mummy Returns");
+INSERT INTO movies (name, movie) VALUES ("Cena", "Toothfairy");
+INSERT INTO movies (name, movie) VALUES ("Adam", "Billy Madison");
+INSERT INTO movies (name, movie) VALUES ("Bill", "Star Wars");
+
+CREATE TABLE hobbies (id INTEGER PRIMARY KEY, name TEXT, hobby TEXT);
+
+INSERT INTO hobbies (name, hobby) Values ("Woody", "Basketball");
+INSERT INTO hobbies (name, hobby) Values ("Candy", "Sports");
+INSERT INTO hobbies (name, hobby) Values ("Rock", "Lifting Weights");
+INSERT INTO hobbies (name, hobby) Values ("Cena", "Running");
+INSERT INTO hobbies (name, hobby) Values ("Adam", "Singing");
+INSERT INTO hobbies (name, hobby) Values ("Bill", "Comedy");
+
+CREATE TABLE Friends (id INTEGER PRIMARY KEY, one_id INTEGER, Friend_id INTEGER);
+
+INSERT INTO Friends (one_id, friend_id) VALUES (1,2);
+INSERT INTO Friends (one_id, friend_id) VALUES (3,4);
+INSERT INTO Friends (one_id, friend_id) VALUES (5,6);
+
+Select * FROM movies;
+Select * FROM hobbies;
+SELECT * FROM Friends;
+
+SELECT movies.name, movies.movie, hobbies.hobby FROM movies 
+    LEFT OUTER JOIN hobbies
+    ON movies.id = hobbies.id;
+    
+Select * FROM friends;
+Select a.name, b.name FROM friends
+    JOIN movies a
+        ON a.id = friends.one_id
+    JOIN movies b
+        ON b.id = friends.friend_id;
